@@ -51,11 +51,11 @@ class AdminLogin extends Component {
   redirectToAdminPage(){
     location.hash = '#/adminPage'
   }
-  
+
   showError(loginInput, passwordInput) {
     loginInput.value = '';
     passwordInput.value = '';
-    alert('Неверное имя пользователя или пароль');
+    alert('Invalid username or password');
   }
 
 }

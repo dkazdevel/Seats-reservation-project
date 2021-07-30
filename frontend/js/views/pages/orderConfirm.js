@@ -50,13 +50,13 @@ class OrderConfirmation extends Component {
       if (!Number.isInteger(+quantityInput.value) || +quantityInput.value > 10) {
         orderTotalPrice.textContent = '';
         quantityInput.value ='';
-        alert('Пожалуйста, введите целое число. Максимально возможное количество бронированных билетов не должно превышать 10');
+        alert('Please enter an integer. The maximum possible number of reserved tickets should not exceed 10');
       } else if (quantityInput.value != ''){
 
         if (concertsData.seatType === 'Танцпол' && +quantityInput.value > (concertsData.seatsData.danceFloor.overall - concertsData.seatsData.danceFloor.booked)) {
           orderTotalPrice.textContent = '';
           quantityInput.value ='';
-          alert(`Уже забронировано ${concertsData.seatsData.danceFloor.booked} из ${concertsData.seatsData.danceFloor.overall} возможных мест. Выберите, пожалуйста, максимальное количество билетов: ${concertsData.seatsData.danceFloor.overall - concertsData.seatsData.danceFloor.booked}`);
+          alert(`Already booked ${concertsData.seatsData.danceFloor.booked} of ${concertsData.seatsData.danceFloor.overall} available seats. Please select the maximum number of tickets: ${concertsData.seatsData.danceFloor.overall - concertsData.seatsData.danceFloor.booked}`);
         } else {
         this.calculateTotalPrice(orderTotalPrice, concertsData.price, quantityInput.value);
         }
@@ -69,7 +69,7 @@ class OrderConfirmation extends Component {
       if (!(/^([а-яё]|[a-z]){2,15}$/i.test(userNameInput.value)) && userNameInput.value.length > 0) {
         userNameInput.value ='';
 
-        alert('Пожалуйста, введите корректное имя');
+        alert('Please enter the correct name');
       }
 
       this.submitButtonIsActive(quantityInput, userNameInput, userEmail, userTel);
@@ -79,7 +79,7 @@ class OrderConfirmation extends Component {
       if (!(/^([a-z]|\d|\_|\-|\.){3,20}@[a-z\d]{1,10}\.[a-z]{2,4}$/i.test(userEmail.value)) && userEmail.value.length > 0) {
         userEmail.value ='';
 
-        alert('Пожалуйста, введите корректный email');
+        alert('Please enter a valid email address');
       }
 
       this.submitButtonIsActive(quantityInput, userNameInput, userEmail, userTel);
@@ -89,7 +89,7 @@ class OrderConfirmation extends Component {
       if (!(/^\+?[\d]{5,9}$/i.test(userTel.value)) && userTel.value.length > 0) {
         userTel.value ='';
 
-        alert('Пожалуйста, введите корректный номер');
+        alert('Please enter the correct number');
       }
 
       this.submitButtonIsActive(quantityInput, userNameInput, userEmail, userTel);
@@ -101,7 +101,7 @@ class OrderConfirmation extends Component {
       if (quantityInput.value != '' && userNameInput.value != '' && userEmail.value != '' && userTel.value != '') {
         this.submitFormActions(concertsData, orderTotalPrice, quantityInput, userNameInput, userEmail, userTel);
       } else {
-        alert('Заполните, пожалуйста, все поля')
+        alert('Please fill in all the fields')
       }
     });
   }

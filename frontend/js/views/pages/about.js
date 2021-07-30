@@ -30,21 +30,21 @@ class About extends Component {
     formNameInput.addEventListener('change', () => {
       if (!(/^([а-яё]|[a-z]){2,15}$/i.test(formNameInput.value)) && formNameInput.value.length > 0) {
         formNameInput.value ='';
-        alert('Пожалуйста, введите корректное имя');
+        alert('Please enter the correct name');
       }
     });
 
     formTelInput.addEventListener('change', () => {
       if (!(/^\+?[\d]{5,9}$/i.test(formTelInput.value)) && formTelInput.value.length > 0) {
         formTelInput.value ='';
-        alert('Пожалуйста, введите корректный номер');
+        alert('Please enter the correct number');
       }
     });
 
     formEmailInput.addEventListener('change', () => {
       if (!(/^([a-z]|\d|\_|\-|\.){3,20}@[a-z\d]{1,10}\.[a-z]{2,4}$/i.test(formEmailInput.value)) && formEmailInput.value.length > 0) {
         formEmailInput.value ='';
-        alert('Пожалуйста, введите корректный email');
+        alert('Please enter a valid email address');
       }
     });
 
@@ -54,7 +54,7 @@ class About extends Component {
       if (formNameInput.value != '' && formTelInput.value != '' && formEmailInput.value != '') {
         this.submitFormActions(formNameInput, formTelInput, formEmailInput);
       } else {
-        alert('Пожалуйста, введите все данные')
+        alert('Please enter all the data')
       }
   });
 }
@@ -68,7 +68,7 @@ class About extends Component {
 
     this.model.sendEmail(contactObj);
 
-    alert('Спасибо, мы с вами свяжемся');
+    alert('Thank you, we will contact you');
 
     formEmailInput.value = '';
     formTelInput.value = '';

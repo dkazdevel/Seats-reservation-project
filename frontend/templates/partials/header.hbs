@@ -4,26 +4,26 @@
   </a>
   {{#if (isMain requestData.resource)}}
     <a href="#/concerts" class="header__concert_button1">
-      Выбрать концерт
+      Choose a concert
     </a>
   {{else}}
     {{#if (isList requestData)}}
       <a href="#" class="header__concert_button1">
-        Главная
+        Main
       </a>
       {{else}}
 
       {{#if (isConcertBooking requestData)}}
         <a href="#/concerts" class="header__concert_button1">
-          К списку
+          To the list
         </a>
       {{else}}
       {{#if (isOrderForm requestData)}}
         <a href="#/concerts" class="header__concert_button1 button-to-main">
-          К списку
+          To the list
         </a>
         <a href="#/concerts/{{requestData.concertId}}" class="header__concert_button1 header-block-right-margin">
-          К концерту
+          To the concert
         </a>
       {{/if}}
     {{/if}}

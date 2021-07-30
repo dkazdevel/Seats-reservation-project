@@ -59,7 +59,7 @@ class AdminLogin extends Component {
       location.hash = '#';
     });
   }
-  
+
   submitAddActions(submitAddForm){
     const title = document.getElementById('title'),
     date = document.getElementById('date'),
@@ -108,10 +108,10 @@ class AdminLogin extends Component {
     if (counter === 0) {
       this.model.addConcertData(newConcertData).then( () => {
         this.clearInputs(submitAddForm);
-        alert('Концерт добавлен');
+        alert('Concert added');
       });
     } else {
-      alert('Не все поля заполнены');
+      alert('Not all fields are filled in');
     }
   }
 
@@ -124,10 +124,10 @@ class AdminLogin extends Component {
     if (concertIDForRemove.value != '') {
       this.model.removeConcertData(dataToSend).then( () => {
         this.clearInputs(submitRemoveForm);
-        alert('Концерт удалён');
+        alert('The concert was deleted');
       });
     } else {
-      alert('Заполните все поля');
+      alert('Not all fields are filled in');
     }
   }
 

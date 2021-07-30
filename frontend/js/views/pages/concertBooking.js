@@ -27,7 +27,7 @@ class ConcertBooking extends Component {
 				resolve(`
 		      <div class="info_part__concerts-container">
 						<a href="#/concerts" class="info_part__concerts-container__button-mobile">
-						Вернуться к списку
+						Back to the concert
 						</a>
 		        <div class="info_part__concerts-container__h1-concert-book">${this.getConcertData(concerts, 'title')}</div>
 		        <div class="info_part__concerts-container__place-date-book">
@@ -35,14 +35,14 @@ class ConcertBooking extends Component {
 		          <h3 class="info_part__concerts-container__place-date__place-concert-book">${this.getConcertData(concerts, 'date')}</h3>
 		        </div>
 		        <div class="info_part__concerts-container__booking-choose-block">
-		          <h2>Сцена</h2>
-		          <div id="dance-floor" class="${this.isDanceFloorActive(concerts)} info_part__concerts-container__booking-choose-block__danceFloor concert-dance-floor" data-state="free">Танцпол</div>
+		          <h2>Scene</h2>
+		          <div id="dance-floor" class="${this.isDanceFloorActive(concerts)} info_part__concerts-container__booking-choose-block__danceFloor concert-dance-floor" data-state="free">Dance floor</div>
 		          <div class="info_part__concerts-container__booking-choose-block__tableSeats">
 		              ${this.getTablesHtml(concerts)}
 		          </div>
 		        </div>
 		        <div class="info_part__concerts-container__booking-form-block">
-		          <h1 class="info_part__concerts-container__booking-form-block__h1">Ваш выбор:</h3>
+		          <h1 class="info_part__concerts-container__booking-form-block__h1">Your choice:</h3>
 		          <div class="info_part__concerts-container__booking-form-block__order-info order-container">
 		          </div>
 		        </div>
@@ -145,15 +145,15 @@ class ConcertBooking extends Component {
 
 		if (overallSeats === bookedSeats) {
 			return `
-			<h2 class="info_part__concerts-container__booking-form-block__order-info__seat-type">Не успели :( Все места на танцполе забронированы</h2>
+			<h2 class="info_part__concerts-container__booking-form-block__order-info__seat-type">Oops, all the seats on the dance floor are booked</h2>
 			`
 		} else {
-			return `<h2 class="info_part__concerts-container__booking-form-block__order-info__seat-type">Танцпол</h2>
+			return `<h2 class="info_part__concerts-container__booking-form-block__order-info__seat-type">Dance floor</h2>
 							<h2 class="info_part__concerts-container__booking-form-block__order-info__seat-description">${description}</h2>
-							<h2 class="info_part__concerts-container__booking-form-block__order-info__seat-price">Цена: ${price} zł</h2>
-							<h2 class="info_part__concerts-container__booking-form-block__order-info__seat-free-seats">Доступно: ${overallSeats - bookedSeats}</h2>
+							<h2 class="info_part__concerts-container__booking-form-block__order-info__seat-price">Price: ${price} zł</h2>
+							<h2 class="info_part__concerts-container__booking-form-block__order-info__seat-free-seats">Available: ${overallSeats - bookedSeats}</h2>
 							<div class="info_part__concerts-container__booking-form-block__order-info__button confirm-button">
-							Забронировать
+							Book
 							</div>`
 			}
 	}
@@ -166,14 +166,14 @@ class ConcertBooking extends Component {
 		bookedSeats = seats.tableSeats.booked;
 
 		if (targetBlock.classList.contains('booked')) {
-			return `<h2 class="info_part__concerts-container__booking-form-block__order-info__seat-type">Упс, кажется стол уже забронирован</h2>`
+			return `<h2 class="info_part__concerts-container__booking-form-block__order-info__seat-type">Oops, the table is already booked</h2>`
 		} else {
-			return `<h2 class="info_part__concerts-container__booking-form-block__order-info__seat-type">Стол № ${targetId.slice(0,2)}</h2>
+			return `<h2 class="info_part__concerts-container__booking-form-block__order-info__seat-type">Table № ${targetId.slice(0,2)}</h2>
 							<h2 class="info_part__concerts-container__booking-form-block__order-info__seat-description">${description}</h2>
-							<h2 class="info_part__concerts-container__booking-form-block__order-info__seat-price">Цена: ${price} zł</h2>
-							<h2 class="info_part__concerts-container__booking-form-block__order-info__seat-free-seats">Доступно столов: ${overallSeats - bookedSeats}</h2>
+							<h2 class="info_part__concerts-container__booking-form-block__order-info__seat-price">Price: ${price} zł</h2>
+							<h2 class="info_part__concerts-container__booking-form-block__order-info__seat-free-seats">Tables available: ${overallSeats - bookedSeats}</h2>
 							<div class="info_part__concerts-container__booking-form-block__order-info__button confirm-button">
-							Забронировать
+							Book
 							</div>`
 		}
 	}
@@ -233,7 +233,7 @@ class ConcertBooking extends Component {
         concertData = concert[requestedData];
       }
     });
-		
+
     return concertData;
     }
 
@@ -266,7 +266,7 @@ class ConcertBooking extends Component {
 
     for (let i = 0; i< seatsData.tableSeats.overall; i++) {
       seatsObj[i] = {'id': this.getShortId(concertIds, i), 'status': this.getStatus(concertIds, i)};
-      html[i] = `<div id="${seatsObj[i].id}"class="${this.getStatusClass(seatsObj[i])} info_part__concerts-container__booking-choose-block__tableSeats__block concert-table-seats">Стол</div>`;
+      html[i] = `<div id="${seatsObj[i].id}"class="${this.getStatusClass(seatsObj[i])} info_part__concerts-container__booking-choose-block__tableSeats__block concert-table-seats">Table</div>`;
     }
 
     concertIds['seats'] = seatsObj;
